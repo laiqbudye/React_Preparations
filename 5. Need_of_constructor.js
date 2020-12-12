@@ -1,3 +1,7 @@
+in class components we need to access state as this.state... here this will point to class... & state is just a property of that class.
+
+if we print typeof this on console then it returns object
+
 // What is need of constructor in class component.
 // Why we need to pass props inside constructor. 
 //e.g 
