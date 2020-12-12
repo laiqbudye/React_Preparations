@@ -1,7 +1,7 @@
 
 // What do you mean by Stateful vs Stateless components.
 
-// the components which handles state inside them are called as Stateful components.
+// the components which handles state inside them are called as Stateful components / container components.
 
 // Historically class-based components were stateful components because in the previous version of react only class components are supposed to play with state.
 
