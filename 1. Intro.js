@@ -1,1 +1,1 @@
-React is a javascript library to build complex user interfaces.
+// React is a javascript library for building user interfaces.
