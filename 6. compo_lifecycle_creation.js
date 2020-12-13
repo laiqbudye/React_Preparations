@@ -17,3 +17,11 @@ many people have misconception that this only get called when props change but t
 3. render()
 render method is a part of React-Dom Object whose task is to display react JSX on to the DOM.
 Any JSX code that you write in render method is converted to React.createElement(tag, props, children) before it is rendered into the DOM.
+dont send any http requets or set any timeout inside render method which will delay our render process.
+if there are any other child components called inside render method, then those components lifecycle methods executes completely then again flow come back to parent 
+components render method.
+
+4. componentDidMount()-
+this method gets called when render has been completed and component has been mounted in the Dom.
+this is the best place to make request to some API. (fetching data from server)
+VERY IMP:- dont call setstate directly(synchronously) in this method which will again re render the page & can go in infinite loop of re rendering.
