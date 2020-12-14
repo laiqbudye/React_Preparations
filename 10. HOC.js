@@ -17,3 +17,7 @@ render(){
     <component 2 />
   </Aux>
 }
+
+
+another example,
+  redux's connect method which connects react component & redux store is also HOC.
