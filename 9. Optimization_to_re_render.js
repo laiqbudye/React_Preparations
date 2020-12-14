@@ -27,3 +27,14 @@ then it is not efficient to chek all those props in an if condition.
 in this case we can use purecomponent. we jst need to extend PureComponents class of react.
 
 purecomponent internally implements props chek, it does shallow comparison of props and decide whether to re-render or not.
+
+
+3. React.memo()
+the above mentioned two methods will work in class components only, then what about functional components.
+React.memo() can be used in functional components.
+it’s a technique that executes a function once, saves the result in memory, and if we try to execute that function again with the same arguments 
+as before, it just returns that previously saved result without executing the function again.
+
+so same concept applies to react also, if we call a component with same props then it just returns the previous result.
+
+memo is a higher order component provided by React that tells the component to only re-render when the props change through the concept of memoization. 
