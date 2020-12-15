@@ -61,3 +61,71 @@ to solve this issue with useState we can write like
         Update name to Jason
  </button>
 
+
+
+2. useEffect()
+this hook is equivalent to componentDidMount(), componentDidUpdate(), componentWillUnmount().
+The Effect Hook lets you perform side effects(sending HTTP request or some other async tasks) in function component.
+
+By using this Hook, you tell React that your component needs to do something after render. 
+React will remember the function you passed (we’ll refer to it as our “effect”), and call it later after performing the DOM updates.
+
+e.g
+
+import React, { useState, useEffect } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
+    // Update the document title using the browser API
+    document.title = `You clicked ${count} times`;
+  });
+  
+  
+By default useEffect() gets execute after each n every render cycle (if we dont suuply dependency array).
+  
+  when we provide blank dependency array in useEffect() then useEffect runs after first render only. it acts like componentDidMount in this case.
+  e.g
+  
+  useEffect(() => {
+    // Update the document title using the browser API
+    document.title = `You clicked ${count} times`;
+  },[]);  // will runs only once like componentDidMount
+
+
+when we provide some props inside dependency array then in that case it gets re-rendered when one of the provided props gets changed.
+e.g
+useEffect(() => {
+    // Update the document title using the browser API
+    document.title = `You clicked ${count} times`;
+  },[person, count]);  // will runs only when person or count changes
+
+
+we can also return function from useEffect() which will execute when component is being unmounted from the DOM. i.e work like componentWillUnmount()
+e.g 1:-
+ useEffect(() => {
+     // Update the document title using the browser API
+    document.title = `You clicked ${count} times`;
+
+    return () => {
+      some cleanup operation
+    };
+  },[]);
+
+
+e.g:2
+useEffect(() => {
+     // Update the document title using the browser API
+    document.title = `You clicked ${count} times`;
+
+    return () => {
+      some cleanup operation
+    };
+  },[person, count]);
+
+so in the e.g 2 when person or count change useEfect will get execute. the execution flow will be as below:-
+1. while mounting or creation phase, after component gets rendered in DOM the useEfect will get execute (normal code & not return block)
+2. then when something gets updated then again useEffect() will get trigger, & in this case first return block (cleanup task) from useEffect will get execute & then it 
+will start executing useEffects normal code.
