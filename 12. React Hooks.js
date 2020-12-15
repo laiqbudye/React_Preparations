@@ -30,7 +30,7 @@ function Example() {
   }
   
   
-  useState() returns 2 parametrs 
+  useState() returns an array.. (if we chek type of return value in console it return "object") 2 parametrs 
   1. current state (in the above e.g count)
   2. function to set current state (in the above e.g setCount)
 
