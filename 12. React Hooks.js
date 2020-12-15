@@ -30,4 +30,34 @@ function Example() {
   }
   
   
-  we can pass parameters to useState(xyz); where the passed parameter get assigned as a default value of that state
+  useState() returns 2 parametrs 
+  1. current state (in the above e.g count)
+  2. function to set current state (in the above e.g setCount)
+
+  we can pass parameters to useState(xyz); where the passed parameter get assigned as a default value of that state. the param can be number, string, obj or array.
+
+usestate works differently as compared to setState.
+when we update state with useState then only that state get updated & it ignores all other states.
+
+e.g
+function UserInfoFunction() {
+  const [userInfo, setUserInfo] = React.useState({ 
+    firstName: 'John', lastName: 'Doe',
+  });
+
+  return (
+    <div>
+      <p>userInfo: {JSON.stringify(userInfo)}</p>
+      <button onClick={() => setUserInfo({ firstName: 'Jason' })}>Update name to Jason</button>   // here we lost lastName key
+    </div>
+  );
+}
+
+
+to solve this issue with useState we can write like
+
+<button onClick={() => setUserInfo(prevState => ({
+        ...prevState, firstName: 'Jason' }))}>
+        Update name to Jason
+ </button>
+
