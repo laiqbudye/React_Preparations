@@ -61,7 +61,7 @@ to solve this issue with useState we can write like
         Update name to Jason
  </button>
 
-
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 2. useEffect()
 this hook is equivalent to componentDidMount(), componentDidUpdate(), componentWillUnmount().
@@ -129,3 +129,53 @@ so in the e.g 2 when person or count change useEfect will get execute. the execu
 1. while mounting or creation phase, after component gets rendered in DOM the useEfect will get execute (normal code & not return block)
 2. then when something gets updated then again useEffect() will get trigger, & in this case first return block (cleanup task) from useEffect will get execute & then it 
 will start executing useEffects normal code.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.useCallback()
+useCallback() often is used in conjunction with useEffect() because it allows you to prevent the re-creation of a function.
+
+when we define a function inside another function, then when the parent function get executed the inner function also gets re-created.
+
+so same concept applies in react like when we declare a function inside functional component then when that functional component re-renders then that inner function gets re-created.
+
+Functions are nothing but objects in js. (referece type)
+
+As we know that we can pass function inside dependency array of useEffect, in this case useCallback comes in picture.
+
+e.g
+const MyComponent = props => {
+    const innerFunction = () => {
+        // do something!
+    };
+ 
+    useEffect(() => {
+        innerFunction();
+        // The effect calls innerFunction, hence it should declare it as a dependency
+        // Otherwise, if something about innerFunction changes (e.g. the data it uses), the effect would run the outdated version of innerFunction
+    }, [innerFunction]);
+};
+
+
+so in the above example when innerfunction gets change then only useEffect will get execute after render. but suppose if we are doing something inside innerFunction() that 
+causes state update of a component then again component gets re-render & during that re-render our innerFunction also get re-created i.e reference to that function changes,
+(in JS functions are objects) . here after render when it comes to useEffect it will detect that innerFunction value is changes & it executes code inside useEffect. then again
+same process will repeat. so we go in infinite loop in this scenario.
+
+to solve above problem useCallback() comes in picture.
+
+const MyComponent = props => {
+    const innerFunction = useCallback(() => {
+        // do something!
+    },[]);  // dependency array just like useEffect
+ 
+    useEffect(() => {
+        innerFunction();
+        // The effect calls innerFunction, hence it should declare it as a dependency
+        // Otherwise, if something about innerFunction changes (e.g. the data it uses), the effect would run the outdated version of innerFunction
+    }, [innerFunction]);
+};
+
+
+By wrapping it around a function declaration and defining the dependencies of the function, it ensures that the function is only re-created if its dependencies changed.
