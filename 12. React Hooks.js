@@ -179,3 +179,57 @@ const MyComponent = props => {
 
 
 By wrapping it around a function declaration and defining the dependencies of the function, it ensures that the function is only re-created if its dependencies changed.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4.useRef():-
+
+useRef() hook is a function that returns mutable object whose .current property gets initialized with an argument, (initialValue).
+The returned object persist for the full lifetime of the component.
+
+const refContainer = useRef(initialValue);
+
+there are 2 purposes of useRef()
+1. accessing DOM nodes/elements
+2. storing mutable information
+
+
+1. Accessing DOM Elements
+In React, the ref attribute will allow us to reference that element and provide us access to its methods. 
+Below is an example of ref and useRef in a functional component.
+
+import React, { useRef } from "react";
+
+const SampleComponent = () => {
+  const textInputRef = useRef(null);
+
+  const buttonClick = () => textInputRef.current.focus();
+
+  return (
+    <React.Fragment>
+      <input type="text" ref={textInputRef} />
+      <button onClick={buttonClick}>Focus on the text</button>
+    <React.Fragment/>
+  );
+}
+
+export default SampleComponent
+
+ When we pass a ref object to input, React will set the .current property to the corresponding DOM node. 
+The textInputRef.current will have access to the methods of input element, like the .focus() method. 
+When the button is clicked, the callback function calls that .focus() method, which focuses in on the input element.
+Also we can use like textInputRef.current.value() to get the value that user entered in that input element.
+
+
+2.Storing Mutable Information
+
+The useRef Hook isn’t just utilized for DOM refs. The ref object is a generic container whose .current property is mutable and can hold any value, similar to an instance property on a class.
+]
+In a React component, there are two ways to keep data between re-renders:
+1. In a state variable where updating the state will cause a re-render of the component or,
+2. In a ref where mutating the .current property will not cause a re-render.
+
+What they have in common is that both of them remember their data after any re-render.
+
+for detailed info:- https://medium.com/javascript-in-plain-english/implementing-useref-in-react-732908aa1998
