@@ -233,3 +233,48 @@ In a React component, there are two ways to keep data between re-renders:
 What they have in common is that both of them remember their data after any re-render.
 
 for detailed info:- https://medium.com/javascript-in-plain-english/implementing-useref-in-react-732908aa1998
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+5. useMemo()
+useMemo() hook is a function which is very useful to optimize performance of the app.
+memoization means it remembers the value of previously executed operation & returns the same result without re-calculating if we pass same parameters again to that operation.
+same concept applied in React, it does not re-render the component if the props are same as previous props.
+
+e.g
+const memoisedValue = React.useMemo(() => doHeavyComputation(a, b), [a, b]);
+
+the structure is as above, it takes two arguments
+1. function  -  which is going to execute
+2. dependency array - when any one of these gets changed then useMemo again execute the function. if we dont pass anything as dependency then it will execute on all renders.
+i.e in the above example when a or b change then only doHeavyComputation() will execute.
+
+
+examples of when to use this useMemo()
+1. Filtering Large Arrays
+2. Avoid unnecessary child component rendering (
+    when parent gets re-rendered, all the child components inside of that parent also get re-render.
+    so in this case we can wrap our child components with useMemo so they will get re-render when props passed to it are actually changed.
+)
+
+for more info visit:- https://dev.to/spukas/react-usememo-for-optimisation-5gna
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
