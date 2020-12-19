@@ -6,4 +6,4 @@ it pushes new URL in the history API, so if we click back button then we can go 
 Redirect
 this also changes URL in address bar.
 The main difference is that redirect replaces current page with new URL, so if we press back then we cant go to the previous page as it does not exist in stack.
-instead on back press we go the page we visit before that page.
+instead on back press we go the page we visited before that page.
