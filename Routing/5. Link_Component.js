@@ -26,3 +26,12 @@ export const Home = () => (
     </ul>
   </div>
 );
+
+
+Difference between Link & NavLink
+The Link component is used to navigate the different routes on the site.
+But NavLink is used to add the style attributes to the active routes. 
+
+<NavLink activeClassName="active" to="/users">
+    Users
+</NavLink>
