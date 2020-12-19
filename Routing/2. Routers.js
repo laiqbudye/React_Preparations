@@ -44,3 +44,20 @@ But in browsers, it does not have history so we cant go back or orward using bro
 import { MemoryRouter as Router } from 'react-router-dom';
 
 For more info visit:- https://learnwithparam.com/blog/different-types-of-router-in-react-router/
+
+
+
+
+VERY IMPORTANT
+
+all these browsers mentioned above take only one child component inside them
+
+e.g
+ReactDOM.render(
+  <BrowserRouter>
+    <App/>
+  </BrowserRouter>,
+  document.getElementById(‘root’));
+
+In this example, the <App/> component is the child to the <BrowserRouter> and should be the only child. 
+Now, the routing can happen anywhere within the <App/> component
