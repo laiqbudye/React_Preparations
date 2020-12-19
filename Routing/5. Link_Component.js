@@ -12,6 +12,9 @@ so to avoid such problems Link component from react-router is very useful.
 here it wont send new request & our page does not get reload. underneath the hood react considers it as anchor tag & it block the new request with preventDefault().
 to prop defines the location to navigate to.
 
+if we go to inspect element & chek our Link component, we will see anchor tag in DOM structure.
+this anchor tag react genertes underneath the hood.
+
 example:-
 export const Home = () => (
   <div>
@@ -37,3 +40,7 @@ But NavLink is used to add the style attributes to the active routes.
 <NavLink activeClassName="active" to="/users">
     Users
 </NavLink>
+
+when we use Navlink then it applies class=active for active link automatically.
+by default the class name is active, but i we want to change the class name then we can override that class name by passing prop activeClassName="newclassname".
+
