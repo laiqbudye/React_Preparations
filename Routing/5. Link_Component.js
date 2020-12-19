@@ -28,6 +28,8 @@ export const Home = () => (
 );
 
 
+ref:- https://medium.com/the-andela-way/understanding-the-fundamentals-of-routing-in-react-b29f806b157e
+
 Difference between Link & NavLink
 The Link component is used to navigate the different routes on the site.
 But NavLink is used to add the style attributes to the active routes. 
