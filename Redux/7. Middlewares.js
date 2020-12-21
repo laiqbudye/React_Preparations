@@ -7,8 +7,14 @@ applyMiddleware() is a function from redux that allows us to add middleware to o
 
 e.g
 
-const store  createStore(rootReducer, applyMiddleware(middlewarename));
+const store = createStore(rootReducer, applyMiddleware(middlewarename));
 
 
 we can also use redux devtools chrome extention & use it as middleware for debugging purpose.
 
+to deal with async operations/requests we need to use redux-thunk middleware. (npm i redux-thunk)
+
+e,g
+import thunk from 'redux-thunk';
+
+const store = createStore(rootReducer, applyMiddleware(middlewarename, thunk));
