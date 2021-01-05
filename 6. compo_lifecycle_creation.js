@@ -21,7 +21,7 @@ dont send any http requets or set any timeout inside render method which will de
 if there are any other child components called inside render method, then those components lifecycle methods executes completely then again flow come back to parent 
 components render method.
 
-when re-redering happens it does touch actual DOM, instead it changes in react's virtual DOM which then chek & updates actual DOM.
+when re-redering happens it does not touch actual DOM, instead it changes in react's virtual DOM which then chek & updates actual DOM.
 
 4. componentDidMount()-
 this method gets called when render has been completed and component has been mounted in the Dom.
