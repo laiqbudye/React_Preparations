@@ -18,7 +18,8 @@ module.exports = {
   output: {
     filename: "output.js",  // overiding default main.js name
     path: path.resolve(__dirname, "WebPack");  // WebPack is a folder name... src/WebPack/main.js
-  }
+  },
+  mode: 'development'   // by default "production", if we set to development then it wont minify our code
 }
 
 4. so we need to tell webpack to pick config changes from this file.
