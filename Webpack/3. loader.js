@@ -17,7 +17,7 @@ module.exports = {
     rules: [  // picked this rule from official website (https://webpack.js.org/loaders/css-loader/)
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ["style-loader", "css-loader"]  // to use it here we also need to install these npm install --save-dev css-loader style-loader
       },
     ],
   },
@@ -29,4 +29,33 @@ that file, it created equivalent JS code for that css code and bundled that insi
 
 so css-loader takes your css & convert it into JS
 & style-loader takes that JS(which is css originally) & inject it into DOM.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SCSS Loader
+
+like scss files are not actual css files, we first need to compile themt to css & then we can use that.
+
+same concept applies here,
+  
+  first we need to translate/compile sass file to css file  (sass-loader)
+  css file to JS file (css-loader)
+  then inject that file in DOM  (style-loader)
+
+module.exports = {
+  module: {
+    rules: [  // picked this rule from official website (https://webpack.js.org/loaders/css-loader/)
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader", "sass-loader"]  // here tasks get executed from last to first (descending order)
+      },
+    ],
+  },
+};
+
+
+
+
+
+
 
