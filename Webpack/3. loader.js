@@ -53,7 +53,28 @@ module.exports = {
   },
 };
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+Images (.jpg, .png, .svg) loader - file-loader
 
+file-loader resolves import or require on a file into a url and emits the file into output directory.
+
+module.exports = {
+  module: {
+    rules: [  // picked this rule from official website (https://webpack.js.org/loaders/css-loader/)
+      {
+        test: /\.(svg|jpg|png|gif)$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            name: [name].[hash].[ext],
+            outputPath: "imgs"
+          }
+        }
+      },
+    ],
+  },
+};
 
 
 
