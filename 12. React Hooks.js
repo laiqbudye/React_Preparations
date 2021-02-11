@@ -61,6 +61,15 @@ to solve this issue with useState we can write like
         Update name to Jason
  </button>
 
+
+
+IMP:- like setState in a class components, useState also batches state update.
+when we call 2 3 useState inside any eventHandler(not async like promises) then it will batch all those calls update the state once.
+when we call 2 3 useState from any eventHandler inside promise, then it wont batch those updates. it will update them seprately.
+
+for more info:- https://stackoverflow.com/questions/53048495/does-react-batch-state-update-functions-when-using-hooks
+example:- https://codesandbox.io/s/402pn5l989
+
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 2. useEffect()
