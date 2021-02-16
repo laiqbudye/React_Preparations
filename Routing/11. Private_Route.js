@@ -4,6 +4,29 @@ privateRoute is nothing but a function(that we create & not from react-router) w
 
 implementation can be as follows:-
 
+    
+    
+// simplified example
+    
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import { isLogin } from '../utils';
+
+const PrivateRoute = ({component: Component, ...rest}) => {
+    return (
+        <Route {...rest} render={props => (
+            isLogin() ?                                 // Show the component only when the user is logged in
+                <Component {...props} />
+            : <Redirect to="/signin" />                   // Otherwise, redirect the user to /signin page
+        )} />
+    );
+};
+
+export default PrivateRoute;
+
+--------------------------------------------------------------------------------------------------------------
+
+//example from zenConnect
 const PrivateRoute = ({
     component: Component,
     auth,
