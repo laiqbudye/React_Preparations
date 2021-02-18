@@ -189,7 +189,7 @@ const MyComponent = props => {
 
 By wrapping it around a function declaration and defining the dependencies of the function, it ensures that the function is only re-created if its dependencies changed.
 
-
+for detailed video explaination:- https://www.youtube.com/watch?v=IL82CzlaCys
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 4.useRef():-
