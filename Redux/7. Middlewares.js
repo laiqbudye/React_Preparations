@@ -18,3 +18,9 @@ e,g
 import thunk from 'redux-thunk';
 
 const store = createStore(rootReducer, applyMiddleware(middlewarename, thunk));
+
+------------------------------------------------------------------------------------------------------------------------
+
+Action Creator is the function which returns an object which will have action type & payload.
+
+Middleware brings an ability for an Action Creator to return a function instead of an action object.
