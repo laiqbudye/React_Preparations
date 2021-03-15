@@ -23,4 +23,19 @@ const store = createStore(rootReducer, applyMiddleware(middlewarename, thunk));
 
 Action Creator is the function which returns an object which will have action type & payload.
 
-Middleware brings an ability for an Action Creator to return a function instead of an action object.
+Middleware brings an ability for an Action Creator to return a function instead of an action object. We can make an API calls from that returned function.
+
+
+function fetchUsers = () => {     // action creator
+  return function(dispatch){     // here thunk provides dispatch method
+    axios.get("jsonplaceholder.com/api/users")
+    .then((res) => {
+      
+      dispatch({
+        type: "users_fetched_success",
+        payload: res.data
+      })
+      
+    })
+  }
+}
