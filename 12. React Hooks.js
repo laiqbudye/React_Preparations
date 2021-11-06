@@ -5,7 +5,7 @@ React hooks are functions that lets you to hook into React state and lifecycle f
 
 
 1. useState()
-suppose if we write a functional component and later want to add state in that component then before React V16.7 we have to convert that component into a class component, 
+suppose if we write a functional component and later want to add state in that component then before React V16.8 we have to convert that component into a class component, 
 but with useState we can add state in that component only.
 it is a hook that allows you to add state in a functional component.
 
@@ -268,22 +268,3 @@ examples of when to use this useMemo()
 )
 
 for more info visit:- https://dev.to/spukas/react-usememo-for-optimisation-5gna
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
