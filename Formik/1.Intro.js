@@ -9,6 +9,7 @@ Formik makes it very easier than traditional approach.
 
 to install:- npm install formik --save
 
+Code example that i implemented:- https://github.com/laiqbudye/formik-sample-form
 
 1. useFormik()
       is a hook/function which takes initial values for form elements & returns an obj (which contains properties & methods that we can use)
