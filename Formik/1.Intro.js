@@ -65,10 +65,13 @@ handleSubmit / onSubmit
    this is a function we add in a useFormik hook which can be used to validate user inputs & show errors. this function should return an array of errors.
    we get error msgs as:- formik.errors.name / formik.errors.email / formik.errors.channel
 
+
 handleBlur 
   is a handler form formik, which keeps tracks of visited fields i.e. which form fields are touched by user.
   we get that data as:- formik.touched.name // true/false    formik.touched.email    formik.touched.channel
   
   
-  
+handleReset / formik.resetForm()
+   it will reset the form to initial state
+   
 
