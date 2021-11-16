@@ -23,6 +23,15 @@ function YouTubeForm() {
         },
         onSubmit: (values) => {       // here in values it gets latests values of form fields
             console.log("Submisssion",values)    
+        },
+        validate: (values) => {    // to validate user inputs, this function should return an error obj
+            let errors = {}
+
+            if (!values.name) {
+                errors.name = "Required"
+            }
+
+            return errors;
         }
     });  
     return (
@@ -48,10 +57,17 @@ handleChange
   this method is provided by formik to handle input change event. it automatically changes state internally & upadates view by formik.values.name or email etc.
   
   
-handleSubmit
-  this method is provided by formik to handle form submit event. it automatically
+handleSubmit / onSubmit
+  this method is provided by formik to handle form submit event. it automatically calls the onSubmit method which we added in useFormik hook.
   
-  
+
+ validate  (to see this in an actual code please go through my formik repo)
+   this is a function we add in a useFormik hook which can be used to validate user inputs & show errors. this function should return an array of errors.
+   we get error msgs as:- formik.errors.name / formik.errors.email / formik.errors.channel
+
+handleBlur 
+  is a handler form formik, which keeps tracks of visited fields i.e. which form fields are touched by user.
+  we get that data as:- formik.touched.name // true/false    formik.touched.email    formik.touched.channel
   
   
   
