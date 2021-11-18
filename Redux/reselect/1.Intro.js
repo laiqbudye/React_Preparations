@@ -2,7 +2,9 @@ reselect:-
   - is a library for creating memoized "selector" functions.
   - commonly used with redux but can be used with plane JS as well
   - this library returns createSelector function 
-
+  - example:- https://github.com/laiqbudye/reselect-example
+  
+  
   to install:- npm install reselect  (we need to install it externally in traditional redux)
   
   it is now officially added to redux toolkit pkg,
