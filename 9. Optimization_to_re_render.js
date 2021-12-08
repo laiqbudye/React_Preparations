@@ -38,3 +38,12 @@ as before, it just returns that previously saved result without executing the fu
 so same concept applies to react also, if we call a component with same props then it just returns the previous result.
 
 memo is a higher order component provided by React that tells the component to only re-render when the props change through the concept of memoization. 
+
+It performs shallow comparison on state & props. If we want to perform deep comparison then we can provide a function as a second arg. to memo which will contain compare logic.
+
+e.g
+  const memoizedComponent = React.memo(Component, equalityChecker);
+
+  function equalityChecker(prevProps, nextProps) {
+    return prevProps.title === nextProps.title && prevProps.movie === nextProps.movie
+  }
