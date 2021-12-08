@@ -4,6 +4,17 @@ React Hooks works only in functional components.
 React hooks are functions that lets you to hook into React state and lifecycle features from function components.
 
 
+Rules of Hooks:-
+  1. Only call hooks at top level.
+      - dont call hooks inside loops, conditions or nested functions. Instead always use hooks at top level of your react function.
+      - by following this use, you ensure that hooks are called in the same order each time a component renders, which allows react to correctly preserve state of hooks
+        between multiple usestate & useeffect calls.
+        
+  2. Only call hooks from react functions
+      - dont call hooks from regular JS functions. Instead call hooks from react functional components or from custom hooks.
+
+
+
 1. useState()
 suppose if we write a functional component and later want to add state in that component then before React V16.8 we have to convert that component into a class component, 
 but with useState we can add state in that component only.
